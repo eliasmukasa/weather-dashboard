@@ -7,9 +7,9 @@ import ForecastChart from './ForecastChart';
 import UnitToggle from './components/UnitToggle';
 
 function App() {
-  const [city, setCity] = useState<string>('London');
-  const [inputValue, setInputValue] = useState<string>('London');
-  const [units, setUnits] = useState<'metric' | 'imperial'>('metric');
+  const [city, setCity] = useState<string>('Atlanta');
+  const [inputValue, setInputValue] = useState<string>('Atlanta');
+  const [units, setUnits] = useState<'metric' | 'imperial'>('imperial');
 
   const handleSearch = () => {
     if (inputValue.trim()) {
