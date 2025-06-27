@@ -4,8 +4,6 @@ A clean, responsive, and modern single-page application that provides real-time 
 
 ![screenshot](./screenshot.png)
 
-> 📸 **Note**: To add your screenshot, take a picture of your running application, save it as `screenshot.png` in your main project folder, and then commit and push it to GitHub. The image will appear above automatically.
-
 ---
 
 ## 🧠 About The Project
