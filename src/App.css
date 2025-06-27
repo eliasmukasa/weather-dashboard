@@ -1,0 +1,225 @@
+/* src/App.css */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+:root {
+  --background-color: #212529;
+  --card-background: #343a40;
+  --text-color: #f8f9fa;
+  --subtle-text-color: #adb5bd;
+  --primary-accent: #007bff;
+  --primary-accent-hover: #0056b3;
+}
+
+/* --- START: THE FIX IS HERE --- */
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  
+  /* Use Flexbox to robustly center the content */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 1.5rem 0; /* Add some padding at the top and bottom */
+}
+
+.App {
+  width: 100%; /* Ensure it takes up the available space */
+  max-width: 900px;
+  /* margin: 0 auto; is no longer the primary centering method */
+}
+/* --- END: THE FIX IS HERE --- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+header h1 {
+  margin: 0;
+  font-weight: 700;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.input-container input {
+  flex-grow: 1;
+  padding: 12px;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--subtle-text-color);
+  background-color: var(--card-background);
+  color: var(--text-color);
+}
+
+.input-container button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  border: none;
+  background-color: var(--primary-accent);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.input-container button:hover {
+  background-color: var(--primary-accent-hover);
+}
+
+.dashboard-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.weather-card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Styles for loading/error states inside cards */
+.weather-card.loading,
+.weather-card.error-card {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  font-weight: bold;
+}
+.weather-card.error-card {
+  color: #e74c3c;
+}
+
+
+.current-weather h3 {
+    margin-top: 0;
+}
+
+.main-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem 0;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.main-info .temperature {
+    font-size: 4rem;
+    font-weight: 300;
+}
+
+.main-info .description {
+    font-size: 1.5rem;
+    color: var(--subtle-text-color);
+    text-transform: capitalize;
+}
+
+.details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+    border-top: 1px solid var(--subtle-text-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+}
+
+.detail-item svg {
+    font-size: 1.5rem;
+    color: var(--primary-accent);
+}
+
+.unit-toggle {
+    display: flex;
+    border: 1px solid var(--primary-accent);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.unit-toggle button {
+    padding: 8px 16px;
+    border: none;
+    background-color: transparent;
+    color: var(--subtle-text-color);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.unit-toggle button.active {
+    background-color: var(--primary-accent);
+    color: white;
+    font-weight: bold;
+}
+
+.geo-button {
+    padding: 12px 14px;
+    font-size: 1.1rem;
+    line-height: 0; /* Helps center the icon */
+    background-color: #6c757d; /* A neutral gray */
+}
+.geo-button:hover {
+    background-color: #5a6268;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply the animation to our cards when they load */
+.weather-card {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* The pulsing animation for the skeleton effect */
+@keyframes pulse {
+  0% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+  50% {
+    background-color: rgba(165, 165, 165, 0.3);
+  }
+  100% {
+    background-color: rgba(165, 165, 165, 0.1);
+  }
+}
+
+/* Base style for a single skeleton element */
+.skeleton {
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  background-color: #4a525a; /* A slightly lighter shade */
+  border-radius: 8px;
+}
+
+/* A helper for skeleton text lines */
+.skeleton-text {
+  height: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+/* A helper for larger skeleton boxes */
+.skeleton-box {
+  height: 150px;
+}
