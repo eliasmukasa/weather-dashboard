@@ -45,6 +45,9 @@ function App() {
         <CurrentWeather city={city} units={units} />
         <ForecastChart city={city} units={units} />
       </main>
+      <footer style={{ marginTop: '2rem', fontSize: '0.85rem', color: '#666' }}>
+        Built by Elias M.K · <a href="https://eliaskizito.com" target="_blank" rel="noopener noreferrer">eliaskizito.com</a>
+      </footer>
     </div>
   );
 }

@@ -2,13 +2,11 @@
 
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-// This import path has been corrected to use the standard Font Awesome icon set path.
 import { FaTemperatureHigh, FaWind, FaTint, FaClock } from 'react-icons/fa';
 
-// The data structure from the API includes a 'dt' timestamp
 interface WeatherData {
   name: string;
-  dt: number; // This is a Unix timestamp
+  dt: number; 
   main: {
     temp: number;
     feels_like: number;
@@ -78,7 +76,7 @@ const CurrentWeather: React.FC<CurrentWeatherProps> = ({ city, units }) => {
   
   // Conditional rendering for loading state
   if (!weatherData) {
-    // You can replace this with your skeleton loader component if you have one
+   
     return <div className="weather-card loading"><p>Loading current weather...</p></div>;
   }
 
